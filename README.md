@@ -27,6 +27,29 @@ ARGS:
     <dsl_text>    
 ```
 
+### Simple ES Query
+```bash
+$ json-generator -p 'query=bool=must=[match=foo=bar, match=bar=200]' 
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "foo": "bar"
+          }
+        },
+        {
+          "match": {
+            "bar": 200
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
 
 ### Objects
 ```bash
