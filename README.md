@@ -3,20 +3,20 @@
 ## Installation
 After you have installed [rustup](https://rustup.rs/).
 ```bash
-$ cargo install json-generator
+$ cargo install jg
 ```
 
 ## Usage
 
 ```bash
-$ json-generator -h
+$ jg -h
 
-json-generator 0.1.0
+jg 0.1.3
 Timothy Bess <tdbgamer@gmail.com>
 Takes in JSON DSL and outputs correctly formatted JSON
 
 USAGE:
-    json-generator [FLAGS] <dsl_text>
+    jg [FLAGS] <dsl_text>
 
 FLAGS:
     -h, --help       Prints help information
@@ -29,7 +29,7 @@ ARGS:
 
 ### Simple ES Query
 ```bash
-$ json-generator -p 'query=bool=must=[match=foo=bar, match=bar=200]' 
+$ jg -p 'query=bool=must=[match=foo=bar, match=bar=200]' 
 {
   "query": {
     "bool": {
@@ -53,7 +53,7 @@ $ json-generator -p 'query=bool=must=[match=foo=bar, match=bar=200]'
 
 ### Objects
 ```bash
-$ json-generator -p 'a=b c=d d=e e=f'
+$ jg -p 'a=b c=d d=e e=f'
 {
   "a": "b",
   "c": "d",
@@ -64,7 +64,7 @@ $ json-generator -p 'a=b c=d d=e e=f'
 
 ### Arrays
 ```bash
-$ json-generator -p '[a, b, c, d, e, f]'
+$ jg -p '[a, b, c, d, e, f]'
 [
   "a",
   "b",
@@ -77,7 +77,7 @@ $ json-generator -p '[a, b, c, d, e, f]'
 
 ### Numbers
 ```bash
-$ json-generator -p '[1, 1.1, 1.2e10, -100]'
+$ jg -p '[1, 1.1, 1.2e10, -100]'
 [
   1,
   1.1,
