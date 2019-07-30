@@ -4,7 +4,7 @@ version = "0.1.4"
 authors = ["Timothy Bess <tdbgamer@gmail.com>"]
 edition = "2018"
 description = "CLI tool to generate JSON from simple DSL"
-respository = "https://github.com/tdbgamer/json-generator-rs"
+repository = "https://github.com/tdbgamer/json-generator-rs"
 readme = "README.md"
 license = "MPL-2.0"
 

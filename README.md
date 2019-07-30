@@ -3,7 +3,7 @@
 ## Installation
 After you have installed [rustup](https://rustup.rs/).
 ```bash
-$ cargo install jg
+$ cargo install json-generator
 ```
 
 ## Usage
