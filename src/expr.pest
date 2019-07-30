@@ -14,7 +14,12 @@ number = @{
     ~ ("." ~ ASCII_DIGIT*)?
     ~ (^"e" ~ ("+" | "-")? ~ ASCII_DIGIT+)?
 }
-string = { "\""? ~ ASCII_ALPHANUMERIC* ~ "\""? }
+string = ${ "\"" ~ char* ~ "\"" | ASCII_ALPHANUMERIC+ }
+char = _{
+    !("\"" | "\\") ~ ANY
+    | "\\" ~ ("\"" | "\\" | "/" | "b" | "f" | "n" | "r" | "t")
+    | "\\" ~ ("u" ~ ASCII_HEX_DIGIT{4})
+}
 array = !{ "[" ~ value? ~ ( "," ~ value )* ~ "]" }
 
 WHITESPACE = _{ " " | "\n" }

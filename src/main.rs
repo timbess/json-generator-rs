@@ -56,7 +56,7 @@ fn parse(pairs: Pair<'_, Rule>) -> Value {
                 .map(|kv_pair| kv_pair.into_inner())
                 .map(|mut kv_pair| {
                     (
-                        kv_pair.next().unwrap().as_str().to_owned(),
+                        kv_pair.next().unwrap().as_str().trim_matches('"').to_owned(),
                         parse(kv_pair.next().unwrap()),
                     )
                 }),
