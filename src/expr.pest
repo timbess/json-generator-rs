@@ -1,0 +1,22 @@
+object = ${ "{"? ~ pair ~ ( " " ~ pair )* ~ "}"? }
+
+pair = { key ~ "=" ~ value }
+
+key = { string } 
+
+value = _{ null | bool | number | array | object | string } 
+
+null = { "null" }
+bool = { "true" | "false" }
+number = @{
+    "-"?
+    ~ ("0" | ASCII_NONZERO_DIGIT ~ ASCII_DIGIT*)
+    ~ ("." ~ ASCII_DIGIT*)?
+    ~ (^"e" ~ ("+" | "-")? ~ ASCII_DIGIT+)?
+}
+string = { "\""? ~ ASCII_ALPHANUMERIC* ~ "\""? }
+array = !{ "[" ~ value? ~ ( "," ~ value )* ~ "]" }
+
+WHITESPACE = _{ " " | "\n" }
+
+input = _{ SOI ~ (object|array) ~ EOI }
