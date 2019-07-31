@@ -1,5 +1,4 @@
-object = ${ "{"? ~ pair ~ ( " " ~ pair )* ~ "}"? }
-
+object = { "{" ~ "}" | "{" ~ pair+ ~ "}" | pair+ }
 pair = { key ~ "=" ~ value }
 
 key = { string } 
